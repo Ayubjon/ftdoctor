@@ -1,0 +1,35 @@
+{
+  "name": "ftdoctor",
+  "version": "1.0.0",
+  "description": "Zero-dependency CLI that diagnoses and auto-fixes chat-format JSONL fine-tuning datasets (OpenAI & Anthropic): structure, role-sequence, duplicates, token/cost estimates, and quality heuristics.",
+  "type": "module",
+  "bin": {
+    "ftdoctor": "bin/ftdoctor.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "llm",
+    "fine-tuning",
+    "jsonl",
+    "dataset",
+    "openai",
+    "anthropic",
+    "linter",
+    "validator",
+    "cli"
+  ],
+  "author": "Ayubjon",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
