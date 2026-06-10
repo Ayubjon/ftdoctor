@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .win { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+      .t { font-size: 13px; fill: #c9d1d9; }
+      .dim { fill: #6e7681; }
+      .red { fill: #ff7b72; }
+      .green { fill: #3fb950; }
+      .yellow { fill: #d29922; }
+      .cyan { fill: #56d364; }
+      .blue { fill: #79c0ff; }
+      .bold { font-weight: 700; fill: #f0f6fc; }
+      .prompt { fill: #58a6ff; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="760" height="560" rx="10"/>
+  <rect class="win" x="12" y="12" width="736" height="536" rx="8"/>
+
+  <!-- title bar -->
+  <circle cx="34" cy="34" r="6" fill="#ff5f56"/>
+  <circle cx="54" cy="34" r="6" fill="#ffbd2e"/>
+  <circle cx="74" cy="34" r="6" fill="#27c93f"/>
+  <text class="t dim" x="380" y="38" text-anchor="middle" font-size="12">ftdoctor — fine-tuning dataset doctor</text>
+
+  <g transform="translate(28,66)">
+    <text class="t" x="0" y="0"><tspan class="prompt">$</tspan> <tspan class="bold">ftdoctor</tspan> train.jsonl --model gpt-4o-mini</text>
+
+    <text class="t bold" x="0" y="30">ftdoctor — fine-tuning dataset report</text>
+
+    <text class="t red" x="0" y="56">✖ 1 line(s) could not be parsed:</text>
+    <text class="t" x="16" y="74"><tspan class="dim">line 7</tspan>  Invalid JSON: Unexpected token 'h'…</text>
+
+    <text class="t bold" x="0" y="100">Issues by example:</text>
+    <text class="t" x="16" y="118"><tspan class="red">error</tspan> <tspan class="dim">line 3</tspan>  <tspan class="cyan">EMPTY_ASSISTANT</tspan>  empty assistant content</text>
+    <text class="t" x="16" y="136"><tspan class="red">error</tspan> <tspan class="dim">line 4</tspan>  <tspan class="cyan">NO_ASSISTANT</tspan>  no training target</text>
+    <text class="t" x="16" y="154"><tspan class="yellow">warn </tspan> <tspan class="dim">line 6</tspan>  <tspan class="cyan">CONSECUTIVE_ROLE</tspan>  two "user" turns in a row</text>
+
+    <text class="t yellow" x="0" y="182">⚠ 1 duplicate group(s), 1 redundant example(s):</text>
+    <text class="t" x="16" y="200"><tspan class="dim">lines</tspan> 2, 5</text>
+
+    <text class="t bold" x="0" y="228">Token statistics (estimated):</text>
+    <text class="t" x="16" y="246">examples: 6</text>
+    <text class="t" x="16" y="264">total: 111   min: 11   median: 20   mean: 19   p95: 30   max: 30</text>
+
+    <text class="t bold" x="0" y="292">Estimated training cost:</text>
+    <text class="t" x="16" y="310"><tspan class="green">$0.0003</tspan> for 111 billed tokens @ $3.00/1M (gpt-4o-mini)</text>
+
+    <text class="t red bold" x="0" y="340">✖ FAIL — 2 error(s) across 2 example(s), 1 parse error, 1 warning</text>
+
+    <text class="t" x="0" y="372"><tspan class="prompt">$</tspan> <tspan class="bold">ftdoctor</tspan> train.jsonl --fix -o clean.jsonl</text>
+    <text class="t" x="0" y="392"><tspan class="dim">ftdoctor:</tspan> kept <tspan class="green">3</tspan> example(s), removed <tspan class="red">4</tspan> → clean.jsonl</text>
+
+    <text class="t" x="0" y="424"><tspan class="prompt">$</tspan> <tspan class="bold">ftdoctor</tspan> clean.jsonl</text>
+    <text class="t green bold" x="0" y="446">✔ PASS — 3 examples, 0 errors</text>
+  </g>
+</svg>
